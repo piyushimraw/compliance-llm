@@ -1,1 +1,0 @@
-export { insertPolicy } from "./db/policy/create.js"
