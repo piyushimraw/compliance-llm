@@ -1,6 +1,6 @@
 import { convert } from "html-to-text";
 
-export const checkCompliance = async (url: string) => {
+export const checkCompliance = async (url: string, policyId: string) => {
   return 0.5
 }
 

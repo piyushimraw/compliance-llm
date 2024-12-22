@@ -29,5 +29,6 @@ export const ComplianceCheck = pgTable("compliance_check", {
   createdAt: timestamp().notNull().defaultNow(),
   updatedAt: timestamp().notNull().defaultNow(),
   policyId: integer().references(() => Policy.id),
-  complianceReport: jsonb().notNull(),
+  complianceReport: jsonb(),
+  status: varchar({ length: 255 }).notNull().default('pending'),
 });

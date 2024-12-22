@@ -1,0 +1,22 @@
+meta {
+  name: Check Compliance
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3000/compliance/check
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+    "url": "https://googe.com",
+    "policyId": "7"
+  }
+}
