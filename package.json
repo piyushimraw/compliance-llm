@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "drizzle:studio": "drizzle-kit studio --port 4200"
+    "drizzle:studio": "drizzle-kit studio --port 4200",
+    "migrate": "drizzle-kit generate && drizzle-kit migrate"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",

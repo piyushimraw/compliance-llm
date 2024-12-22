@@ -56,28 +56,43 @@ A scalable API that analyzes webpage content against compliance policies using L
 
 ### Quick Start
 ```bash
-# Start dependencies
-docker-compose up -d
+# Clone the repository
+git clone 
+
+# use node version 20
+nvm use 
+
+# generate .env file
+cp .env.example .env
+
 
 # Install packages
 npm install
+
+# start the infrastructure
+docker-compose up -d 
+
+# Run database migrations
+npm run migrate
 
 # Start development server
 npm run dev
 ```
 
 ### Environment Variables
-```
+
+```.env
 DATABASE_URL=postgresql://user:pass@localhost:5432/db
 OPENAI_API_KEY=your_openai_key
+REDIS_HOST=localhost
+REDIS_PORT=6379
 ```
 
-## Deployment
+### Run with Docker Compose
 
-### Docker
 ```bash
-docker build -t compliance-checker-api .
-docker run -p 3000:3000 --env-file .env compliance-checker-api
+# Start the infrastructure
+docker-compose up -d
 ```
 
 ## Future Enhancements
