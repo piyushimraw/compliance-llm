@@ -1,8 +1,9 @@
 import type { Context } from "hono";
-import { checkCompliance } from "utils/index.js";
-
+import { createComplianceCheck } from "services/db/compliance/index.js";
+import { createComplianceCheckJob } from "queue/check-compliance.js";
 export const CheckCompliance = async (c: Context) => {
-  const { url, policyId } = await c.req.json()
-  const compliance = await checkCompliance(url, policyId)
-  return c.json({ compliance }, 202)
-} 
+  const { url, policyId, name } = await c.req.json()
+  const complianceCheck = await createComplianceCheck(url, Number.parseInt(policyId, 10), name)
+  await createComplianceCheckJob(url, policyId, name)
+  return c.json({ complianceCheck }, 202)
+}       

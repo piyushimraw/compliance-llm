@@ -9,6 +9,7 @@
   "dependencies": {
     "@hono/node-server": "^1.13.7",
     "@hono/zod-validator": "^0.4.2",
+    "bee-queue": "^1.7.1",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.2",
     "drizzle-zod": "^0.6.0",

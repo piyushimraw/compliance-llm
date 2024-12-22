@@ -32,3 +32,9 @@ export const ComplianceCheck = pgTable("compliance_check", {
   complianceReport: jsonb(),
   status: varchar({ length: 255 }).notNull().default('pending'),
 });
+
+export type ComplianceCheckInsert = typeof ComplianceCheck.$inferInsert
+export type ComplianceCheckSelect = typeof ComplianceCheck.$inferSelect
+
+export const ComplianceCheckInsertSchema = createInsertSchema(ComplianceCheck)
+export const ComplianceCheckSelectSchema = createSelectSchema(ComplianceCheck)

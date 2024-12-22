@@ -11,6 +11,7 @@ ComplianceRouter.post('/check', zValidator(
   z.object({
     url: z.string().url(),
     policyId: z.string(),
+    name: z.string(),
   })
 ), CheckCompliance)
 
