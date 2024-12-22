@@ -4,7 +4,12 @@ import { getPolicyById } from '../services/db/policy/index.js';
 import { getHTML, parseHTML, checkCompliance } from '../utils/index.js';
 
 
-const checkComplianceQueue = new Queue('check-compliance');
+const checkComplianceQueue = new Queue('check-compliance', {
+    redis: {
+        host: process.env.REDIS_HOST,
+        port: process.env.REDIS_PORT,
+    }
+});
 
 export const createComplianceCheckJob = async (url: string, policyId: string, name: string, complianceCheckId: string) => {
     console.log("creating compliance check job", url, policyId, name)

@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   db:
-    image: postgres
+    image: postgres:15
     ports:
       - 5432:5432
     environment:
@@ -18,14 +18,46 @@ services:
       timeout: 5s
       retries: 5
       start_period: 5s
+    networks:
+      - compliance-network
 
 
   redis:
-    image: redis
+    image: redis:7
     ports:
       - 6379:6379
+    restart: always
+    networks:
+      - compliance-network
+
+
+  service:
+    image: compliance-checker:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - .env:/app/.env
+    networks:
+      - compliance-network
 
 volumes:
   postgres_data:
     name: compliance-postgres-data
     driver: local
+
+  redis_data:
+    name: compliance-redis-data
+    driver: local
+
+networks:
+  compliance-network:
+    driver: bridge
