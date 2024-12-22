@@ -10,8 +10,8 @@ export const createComplianceCheck = async (url: string, policyId: number, name:
 }
 
 export const getComplianceCheck = async (id: number) => {
-    const complianceCheck = await db.select().from(ComplianceCheck).where(eq(ComplianceCheck.id, id))   
-    return complianceCheck
+    const complianceCheck = await db.select().from(ComplianceCheck).where(eq(ComplianceCheck.id, id)).limit(1)
+    return complianceCheck[0]
 }
 
 export const updateComplianceCheck = async (id: number, status: string, complianceReport: any) => {

@@ -2,17 +2,8 @@ import { convert } from "html-to-text";
 import { checkComplianceUsingOpenAI } from "services/openai/index.js";
 
 export const checkCompliance = async (html: string, content: string) => {
-    try {
         const complianceCheck = await checkComplianceUsingOpenAI(html, content)
-        console.log("complianceCheck", complianceCheck)
-        return complianceCheck
-    } catch (error: any) {
-        console.error("error checking compliance", error.message)
-        return {
-            status: 'error',
-            message: 'Failed to check compliance'
-        }
-    }
+        return complianceCheck;
 }
 
 
