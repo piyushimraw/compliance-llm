@@ -1,15 +1,19 @@
 import { boolean, integer, jsonb, pgTable, timestamp, varchar, text } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
+// add a unique constraint to the source column
+// add index to the source column
 export const Policy = pgTable("policy", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   name: varchar({ length: 255 }).notNull(),
   content: text().notNull(),
-  source: varchar({ length: 255 }).notNull(),
+  source: varchar({ length: 255 }).notNull().unique(),
   createdAt: timestamp().notNull().defaultNow(),
   updatedAt: timestamp().notNull().defaultNow(),
   isActive: boolean().notNull().default(true),
 });
+
+
 
 export type PolicyInsert = typeof Policy.$inferInsert
 export type PolicySelect = typeof Policy.$inferSelect
