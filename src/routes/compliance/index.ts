@@ -5,31 +5,12 @@ import { checkCompliance } from "utils/index.js"
 
 const ComplianceRouter = new Hono()
 
-ComplianceRouter.post('/new', (c) => {
-  return c.text('Hello Hono!')
-})
-
-ComplianceRouter.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
-
-ComplianceRouter.get('/:id', (c) => {
-  return c.text('Hello Hono!')
-})
-
-ComplianceRouter.put('/:id', (c) => {
-  return c.text('Hello Hono!')
-})
-
-ComplianceRouter.delete('/:id', (c) => {
-  return c.text('Hello Hono!')
-})
-
 
 ComplianceRouter.post('/check', zValidator(
   "json",
   z.object({
     url: z.string(),
+    policyId: z.string(),
     })
   ), async (c) => {
   const { url } = await c.req.json()

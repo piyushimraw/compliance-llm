@@ -1,3 +1,4 @@
 import { ComplianceRouter } from './compliance/index.js'
+import { PolicyRouter } from './policy/index.js'
 
-export { ComplianceRouter }
+export { ComplianceRouter, PolicyRouter }
