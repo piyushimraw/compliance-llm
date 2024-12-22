@@ -56,9 +56,6 @@ A scalable API that analyzes webpage content against compliance policies using L
 
 ### Quick Start
 ```bash
-# Clone the repository
-git clone 
-
 # use node version 20
 nvm use 
 
@@ -72,8 +69,13 @@ npm install
 # start the infrastructure
 docker-compose up -d 
 
+# Copy the .env.example file to .env and update the values
+cp .env.example .env
+
 # Run database migrations
 npm run migrate
+
+
 
 # Start development server
 npm run dev
