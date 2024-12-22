@@ -1,7 +1,7 @@
 import Queue from 'bee-queue';
-import { updateComplianceCheck } from 'services/db/compliance/index.js';
-import { getPolicyById } from 'services/db/policy/index.js';
-import { checkCompliance, getHTML, parseHTML } from 'utils/index.js';
+import { updateComplianceCheck } from '../services/db/compliance/index.js';
+import { getPolicyById } from '../services/db/policy/index.js';
+import { getHTML, parseHTML, checkCompliance } from '../utils/index.js';
 
 
 const checkComplianceQueue = new Queue('check-compliance');

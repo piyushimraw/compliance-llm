@@ -1,5 +1,5 @@
 import { convert } from "html-to-text";
-import { checkComplianceUsingOpenAI } from "services/openai/index.js";
+import { checkComplianceUsingOpenAI } from "../services/openai/index.js";
 
 export const checkCompliance = async (html: string, content: string) => {
         const complianceCheck = await checkComplianceUsingOpenAI(html, content)

@@ -1,8 +1,7 @@
 import { eq } from "drizzle-orm"
-import { db } from "db/index.js"
-import { Policy, PolicyInsertSchema } from "db/schema.js"
+import { db } from "../../../db/index.js"
+import { type PolicyInsert, PolicyInsertSchema, Policy } from "../../../db/schema.js"
 
-import { type PolicyInsert } from "db/schema.js"
 
 export const insertPolicy = async (policy: PolicyInsert) => {
   const parsedPolicy = PolicyInsertSchema.parse(policy)

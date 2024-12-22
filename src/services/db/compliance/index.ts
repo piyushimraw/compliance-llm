@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm"
+import { db } from "../../../db/index.js"
+import { ComplianceCheckInsertSchema, ComplianceCheck } from "../../../db/schema.js"
 
-import { db } from "db/index.js"
-import { ComplianceCheck, ComplianceCheckInsertSchema } from "db/schema.js"
 
 export const createComplianceCheck = async (url: string, policyId: number, name: string) => {
     const newComplianceCheck = ComplianceCheckInsertSchema.parse({ url, policyId, name })

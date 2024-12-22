@@ -1,7 +1,7 @@
-import { CreateNewPolicy } from "controllers/policy/index.js"
 import { Hono } from "hono"
 import { z } from "zod"
 import { zValidator } from "@hono/zod-validator"
+import { CreateNewPolicy } from "../../controllers/policy/index.js"
 const PolicyRouter = new Hono()
 
 PolicyRouter.get('/', (c) => {

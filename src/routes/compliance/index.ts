@@ -1,7 +1,7 @@
 import { Hono } from "hono"
 import { zValidator } from '@hono/zod-validator'
 import { z } from 'zod'
-import { CheckCompliance, GetComplianceCheck } from "controllers/compliance/index.js"
+import { CheckCompliance, GetComplianceCheck } from "../../controllers/compliance/index.js"
 
 const ComplianceRouter = new Hono()
 
@@ -13,7 +13,7 @@ ComplianceRouter.post('/check', zValidator(
     policyId: z.string(),
     name: z.string(),
   })
-), CheckCompliance)
+  ), CheckCompliance)
 
 
 ComplianceRouter.get('/status/:id', zValidator(

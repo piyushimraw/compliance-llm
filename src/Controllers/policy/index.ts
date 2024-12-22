@@ -1,6 +1,7 @@
 import type { Context } from "hono";
-import { insertPolicy } from "services/db/policy/index.js";
-import { getHTML, parseHTML } from "utils/index.js";
+import { insertPolicy } from "../../services/db/policy/index.js";
+import { getHTML, parseHTML } from "../../utils/index.js";
+
 
 
 const CreateNewPolicy = async (c: Context) => {

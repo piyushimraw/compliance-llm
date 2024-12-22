@@ -1,6 +1,7 @@
 import type { Context } from "hono";
-import { createComplianceCheck, getComplianceCheck } from "services/db/compliance/index.js";
-import { createComplianceCheckJob } from "queue/check-compliance.js";
+import { createComplianceCheckJob } from "../../queue/check-compliance.js";
+import { createComplianceCheck, getComplianceCheck } from "../../services/db/compliance/index.js";
+
 export const CheckCompliance = async (c: Context) => {
   const { url, policyId, name } = await c.req.json()
   const complianceCheck = await createComplianceCheck(url, Number.parseInt(policyId, 10), name)
