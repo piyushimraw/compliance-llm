@@ -14,6 +14,7 @@ PolicyRouter.post('/', zValidator(
     name: z.string(),
     content: z.optional(z.string()),
     source: z.string().url(),
+    selectors: z.array(z.string()).optional()
   })
 ), CreateNewPolicy)
 
