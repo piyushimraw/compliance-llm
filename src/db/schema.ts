@@ -1,4 +1,5 @@
 import { boolean, integer, jsonb, pgTable, timestamp, varchar, text } from "drizzle-orm/pg-core";
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
 export const Policy = pgTable("policy", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -9,6 +10,12 @@ export const Policy = pgTable("policy", {
   updatedAt: timestamp().notNull().defaultNow(),
   isActive: boolean().notNull().default(true),
 });
+
+export type PolicyInsert = typeof Policy.$inferInsert
+export type PolicySelect = typeof Policy.$inferSelect
+
+export const PolicyInsertSchema = createInsertSchema(Policy)
+export const PolicySelectSchema = createSelectSchema(Policy)
 
 
 export const ComplianceCheck = pgTable("compliance_check", {
