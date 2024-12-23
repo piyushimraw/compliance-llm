@@ -3,10 +3,12 @@ import { Hono } from 'hono'
 import { ComplianceRouter, PolicyRouter } from './routes/index.js'
 import { getStatus } from './controllers/index.js'
 import { startQueue } from './queue/check-compliance.js'
-
+import { startParsePolicyQueue } from './queue/parse-policy.js'
 
 const app = new Hono()
 startQueue()
+startParsePolicyQueue()
+
 
 app.route('/compliance', ComplianceRouter)
 app.route('/policy', PolicyRouter)

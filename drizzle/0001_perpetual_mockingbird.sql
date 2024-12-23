@@ -1,0 +1,1 @@
+ALTER TABLE "policy" ADD COLUMN "status" varchar(255) DEFAULT 'pending' NOT NULL;

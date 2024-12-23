@@ -11,6 +11,7 @@ export const Policy = pgTable("policy", {
   createdAt: timestamp().notNull().defaultNow(),
   updatedAt: timestamp().notNull().defaultNow(),
   isActive: boolean().notNull().default(true),
+  status: varchar({ length: 255 }).notNull().default('pending'),
 });
 
 

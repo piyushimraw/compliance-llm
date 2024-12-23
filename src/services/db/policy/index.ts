@@ -12,3 +12,8 @@ export const getPolicyById = async (policyId: string) => {
     const policy = await db.select().from(Policy).where(eq(Policy.id, Number.parseInt(policyId, 10))).limit(1)
     return policy[0]
 }   
+
+export const updatePolicy = async (policyId: string, status: string, content: string) => {
+    const policy = await db.update(Policy).set({ status, content, updatedAt: new Date() }).where(eq(Policy.id, Number.parseInt(policyId, 10)))
+    return policy
+}
